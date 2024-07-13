@@ -7,25 +7,22 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.todo1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var editText: EditText
     private lateinit var editText1: EditText
     private lateinit var checkBox: CheckBox
     private lateinit var checkBox1: CheckBox
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        editText = findViewById(R.id.editText)
-        editText1 = findViewById(R.id.editText1)
-        checkBox = findViewById(R.id.checkBox)
-        checkBox1 = findViewById(R.id.checkBox1)
-        // tutaj dac cos co sprawia, ze ten durny tekst znika XD
-        editText.alpha = 1.0f
-        editText1.alpha = 1.0f
-
+        binding.editText.alpha = 1.0f
+        binding.editText1.alpha = 1.0f
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
